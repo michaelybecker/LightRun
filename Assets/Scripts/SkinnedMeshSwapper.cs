@@ -11,6 +11,8 @@ public class SkinnedMeshSwapper : MonoBehaviour
     [SerializeField] float[] LocusHeights;
     int SMCounter = 0;
 
+    bool _lerpForwards = true;
+
     Smrvfx.SkinnedMeshBaker _smb;
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,6 @@ public class SkinnedMeshSwapper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.Space)) SwitchMesh();
     }
 
