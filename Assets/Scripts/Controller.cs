@@ -24,7 +24,6 @@ public class Controller : MonoBehaviour
     void Start()
     {
         _ctrl = GetComponentInChildren<CharacterController>();
-
     }
 
     // Update is called once per frame

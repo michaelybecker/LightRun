@@ -18,6 +18,8 @@ class StateManager : MonoBehaviour
     {
         GameState = (State)_currentState;
         _stateCount = Enum.GetValues(typeof(State)).Length;
+
+        Cursor.visible = false;
     }
 
     public void IncState()
