@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Collections;
 
+#if UNITY_EDITOR
+
 [CustomEditor(typeof(AudioSpectrum))]
 public class AudioSpectrumInspector : Editor
 {
@@ -33,46 +35,53 @@ public class AudioSpectrumInspector : Editor
     #endregion
 
     #region Private functions
-    void UpdateCurve ()
+    void UpdateCurve()
     {
         var spectrum = target as AudioSpectrum;
 
         // Create a new curve to update the UI.
-        curve = new AnimationCurve ();
+        curve = new AnimationCurve();
 
         // Add keys for the each band.
         var bands = spectrum.Levels;
-        for (var i = 0; i < bands.Length; i++) {
-            curve.AddKey (1.0f / bands.Length * i, bands [i]);
+        for (var i = 0; i < bands.Length; i++)
+        {
+            curve.AddKey(1.0f / bands.Length * i, bands[i]);
         }
     }
     #endregion
 
     #region Editor callbacks
-    public override void OnInspectorGUI ()
+    public override void OnInspectorGUI()
     {
         var spectrum = target as AudioSpectrum;
 
         // Update the curve only when it's playing.
-        if (EditorApplication.isPlaying) {
-            UpdateCurve ();
-        } else if (curve == null) {
-            curve = new AnimationCurve ();
+        if (EditorApplication.isPlaying)
+        {
+            UpdateCurve();
+        }
+        else if (curve == null)
+        {
+            curve = new AnimationCurve();
         }
 
         // Component properties.
-        spectrum.numberOfSamples = EditorGUILayout.IntPopup ("Number of samples", spectrum.numberOfSamples, sampleOptionStrings, sampleOptions);
-        spectrum.bandType = (AudioSpectrum.BandType)EditorGUILayout.IntPopup ("Band type", (int)spectrum.bandType, bandOptionStrings, bandOptions);
-        spectrum.fallSpeed = EditorGUILayout.Slider ("Fall speed", spectrum.fallSpeed, 0.01f, 0.5f);
-        spectrum.sensibility = EditorGUILayout.Slider ("Sensibility", spectrum.sensibility, 1.0f, 20.0f);
+        spectrum.numberOfSamples = EditorGUILayout.IntPopup("Number of samples", spectrum.numberOfSamples, sampleOptionStrings, sampleOptions);
+        spectrum.bandType = (AudioSpectrum.BandType)EditorGUILayout.IntPopup("Band type", (int)spectrum.bandType, bandOptionStrings, bandOptions);
+        spectrum.fallSpeed = EditorGUILayout.Slider("Fall speed", spectrum.fallSpeed, 0.01f, 0.5f);
+        spectrum.sensibility = EditorGUILayout.Slider("Sensibility", spectrum.sensibility, 1.0f, 20.0f);
 
         // Shows the spectrum curve.
-        EditorGUILayout.CurveField (curve, Color.white, new Rect (0, 0, 1.0f, 0.1f), GUILayout.Height (64));
+        EditorGUILayout.CurveField(curve, Color.white, new Rect(0, 0, 1.0f, 0.1f), GUILayout.Height(64));
 
         // Update frequently while it's playing.
-        if (EditorApplication.isPlaying) {
-            EditorUtility.SetDirty (target);
+        if (EditorApplication.isPlaying)
+        {
+            EditorUtility.SetDirty(target);
         }
     }
     #endregion
 }
+
+#endif

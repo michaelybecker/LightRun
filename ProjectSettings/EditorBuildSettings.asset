@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/External/Smrvfx/Karate.unity
-    guid: ddd59e5a1315051eaa5a6f4cb6a84774
+    path: Assets/Scenes/Main.unity
+    guid: 672253f3042eb254aa0dd90ab81ed8fe
   m_configObjects: {}

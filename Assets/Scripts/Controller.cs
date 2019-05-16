@@ -41,5 +41,10 @@ public class Controller : MonoBehaviour
             _humanAnim.SetBool("running", false);
             _wolfAnim.SetBool("running", false);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
