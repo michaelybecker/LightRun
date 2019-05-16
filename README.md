@@ -1,5 +1,6 @@
 # LightRun
-An audioreactive exploration of Unity 2019's HDRP&amp;VFX Graph 
+A Small World
+(also, an audioreactive exploration of Unity 2019's HDRP&amp;VFX Graph)
 
 ![](LightRunShort.gif)
 
@@ -12,6 +13,7 @@ An audioreactive exploration of Unity 2019's HDRP&amp;VFX Graph
 
 ### Instructions:
 * Mouse to orbit camera
-* Space to switch between 3 skinned mesh as particle sources
+* Arrows / WASD to move
+* Space for metamorphosis
 
 _Big thanks to [Keiijiro](https://github.com/keijiro) for [smrvfx](https://github.com/keijiro/Smrvfx) and his [audio spectrum analyzer](https://github.com/keijiro/unity-audio-spectrum), which were great starting points for what I needed_
