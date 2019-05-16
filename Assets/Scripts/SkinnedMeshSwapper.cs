@@ -48,6 +48,7 @@ public class SkinnedMeshSwapper : MonoBehaviour
 
         _smb.source = SkinnedMeshes[SMCounter];
         LocusFocus.transform.position = new Vector3(LocusFocus.transform.position.x, LocusHeights[SMCounter], LocusFocus.transform.position.z);
+
     }
 
     IEnumerator Transition()
